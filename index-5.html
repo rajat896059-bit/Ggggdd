@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Gov All India Jobs - government job alerts, results, admit cards, answer keys, syllabus and official government links.">
+<title>Gov All India Jobs | Latest Government Jobs & Results</title>
+<style>
+:root{--blue:#0d47a1;--navy:#002147;--red:#800000;--bg:#f5f5f5;--white:#fff;--border:#ccc;--yellow:#ffeb3b;--dark:#1a1a1a;--text:#222}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--text);line-height:1.45;overflow-x:hidden}
+a{text-decoration:none}
+.topbar{background:#111;color:#fff;padding:7px 15px;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;font-size:13px}
+.topbar a{color:var(--yellow)}
+header{background:var(--blue);color:#fff;text-align:center;padding:22px 10px;border-bottom:5px solid var(--red)}
+header h1{font-size:35px;text-transform:uppercase;letter-spacing:.4px}
+header p{color:var(--yellow);font-weight:800;margin-top:4px}
+nav{background:var(--red);position:sticky;top:0;z-index:50;box-shadow:0 2px 5px #0004}
+.nav-inner{max-width:1250px;margin:auto;display:flex;justify-content:center;flex-wrap:wrap}
+nav a{color:#fff;font-weight:700;font-size:14px;padding:11px 15px;border-right:1px solid #fff3}
+nav a:hover{background:var(--blue)}
+.menu-btn{display:none;color:#fff;text-align:right;padding:9px 15px;font-size:24px;cursor:pointer}
+.container{width:96%;max-width:1250px;margin:15px auto}
+.search{background:#fff;border:2px solid var(--navy);padding:10px;display:flex;gap:8px;margin-bottom:15px}
+.search input{flex:1;min-width:0;border:1px solid #aaa;padding:10px;font-size:15px}
+.search button{border:0;background:var(--blue);color:#fff;padding:0 20px;font-weight:bold;cursor:pointer}
+.search button:hover{background:var(--red)}
+.ticker{display:flex;background:#fff;border:2px solid var(--red);overflow:hidden;margin-bottom:15px}
+.ticker-title{background:var(--red);color:#fff;padding:8px 14px;white-space:nowrap;font-weight:bold}
+.ticker-window{overflow:hidden;flex:1;padding:8px 0}
+.ticker-track{display:inline-block;white-space:nowrap;padding-left:100%;animation:scroll 25s linear infinite;color:#b00000;font-weight:bold}
+@keyframes scroll{to{transform:translateX(-100%)}}
+.featured{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:20px}
+.featured a{color:#fff;text-align:center;font-weight:bold;padding:13px 7px;border-radius:3px;box-shadow:0 2px 5px #0002;transition:.2s}
+.featured a:hover{transform:translateY(-2px);filter:brightness(.9)}
+.f1{background:#c62828}.f2{background:#6a1b9a}.f3{background:#1565c0}.f4{background:#ef6c00}
+.f5{background:#00838f}.f6{background:#2e7d32}.f7{background:#283593}.f8{background:#ad1457}
+.grid3,.grid2{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin-bottom:20px}
+.card{background:#fff;border:2px solid var(--navy);overflow:hidden}
+.card h2{background:var(--navy);color:#fff;text-align:center;font-size:18px;padding:9px}
+.card ul{list-style:none}
+.card li{border-bottom:1px solid var(--border)}
+.card li:last-child{border-bottom:0}
+.card li a{display:block;color:#111;padding:9px 11px;font-size:14px;font-weight:600}
+.card li a:before{content:"➤";color:var(--red);margin-right:7px}
+.card li a:hover{background:#f0f4fa;color:#c00}
+.info{background:#fff;border:1px solid var(--border);padding:18px;margin-bottom:20px}
+.info h2{color:var(--navy);border-bottom:3px solid var(--red);padding-bottom:7px;margin-bottom:10px}
+.table-wrap{width:100%;overflow-x:auto}
+table{width:100%;min-width:650px;border-collapse:collapse}
+th,td{border:1px solid var(--border);padding:9px;font-size:13px;text-align:left}
+th{background:var(--navy);color:#fff}
+.official{color:#b00000;font-weight:bold}
+.note{font-size:12px;color:#555;margin-top:10px}
+footer{background:var(--dark);color:#fff;text-align:center;padding:28px 15px;border-top:5px solid var(--red)}
+footer p{margin:6px;font-size:13px}
+footer a{color:#64b5f6}
+#top{position:fixed;right:16px;bottom:16px;width:42px;height:42px;border:0;border-radius:50%;background:var(--red);color:#fff;font-size:20px;display:none;cursor:pointer}
+.modal{display:none;position:fixed;inset:0;background:#0009;z-index:100;align-items:center;justify-content:center;padding:15px}
+.modal-box{background:#fff;width:min(600px,100%);max-height:90vh;overflow:auto;border-radius:4px}
+.modal-head{background:var(--blue);color:#fff;padding:12px 15px;font-weight:bold;font-size:18px;display:flex;justify-content:space-between}
+.close{cursor:pointer;font-size:24px}
+.modal-body{padding:18px}
+.modal-body p{margin:7px 0}
+.modal-btn{display:inline-block;margin-top:12px;background:var(--red);color:#fff;padding:10px 16px;font-weight:bold}
+@media(max-width:900px){.grid3,.grid2{grid-template-columns:1fr}.featured{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:650px){
+.topbar{justify-content:center;text-align:center}
+.menu-btn{display:block}
+.nav-inner{display:none;flex-direction:column;align-items:stretch}
+.nav-inner.open{display:flex}
+nav a{text-align:center;border-right:0;border-bottom:1px solid #fff3}
+header h1{font-size:25px}
+.ticker{display:block}.ticker-title{text-align:center}
+.search{flex-direction:column}.search button{padding:10px}
+}
+@media(max-width:400px){.featured{grid-template-columns:1fr}.container{width:94%}}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+<span>Welcome to Gov All India Jobs Official Portal</span>
+<span>Email: <a href="mailto:govall9793@gmail.com">govall9793@gmail.com</a> | Phone: <a href="tel:9793275447">9793275447</a></span>
+</div>
+
+<header id="home">
+<h1>Gov All India Jobs</h1>
+<p>WWW.GOVALLINDIAJOBS.COM</p>
+</header>
+
+<nav>
+<div class="menu-btn" onclick="toggleMenu()" aria-label="Open menu">☰</div>
+<div class="nav-inner" id="navMenu">
+<a href="#home">Home</a>
+<a href="#latest-jobs">Latest Jobs</a>
+<a href="#admit-card">Admit Card</a>
+<a href="#result">Result</a>
+<a href="#answer-key">Answer Key</a>
+<a href="#syllabus">Syllabus</a>
+<a href="#admission">Admission</a>
+<a href="#contact">Contact Us</a>
+</div>
+</nav>
+
+<main class="container">
+
+<div class="search">
+<input id="searchInput" type="search" placeholder="Search Jobs, Results, Admit Cards, Syllabus..." aria-label="Search">
+<button onclick="searchJobs()">🔍 Search</button>
+</div>
+
+<div class="ticker" aria-label="Latest updates">
+<div class="ticker-title">🔥 Latest Updates</div>
+<div class="ticker-window">
+<div class="ticker-track">SSC Recruitment | UPSC Recruitment | Railway Recruitment | India Post Jobs | Police Recruitment | Army Recruitment | Latest Government Results | Always verify current details on the official notification.</div>
+</div>
+</div>
+
+<div class="featured">
+<a class="f1" href="#latest-jobs">SSC CGL</a>
+<a class="f2" href="#latest-jobs">UPSC</a>
+<a class="f3" href="#latest-jobs">Railway RRB</a>
+<a class="f4" href="#latest-jobs">UP Police</a>
+<a class="f5" href="#latest-jobs">India Post</a>
+<a class="f6" href="#latest-jobs">Army Agniveer</a>
+<a class="f7" href="#latest-jobs">Indian Navy</a>
+<a class="f8" href="#latest-jobs">Airforce Agniveer</a>
+</div>
+
+<div class="grid3">
+
+<section class="card" id="result">
+<h2>📊 RESULT</h2><ul>
+<li><a href="https://ssc.gov.in/" target="_blank" rel="noopener noreferrer">SSC Result</a></li>
+<li><a href="https://upsc.gov.in/" target="_blank" rel="noopener noreferrer">UPSC Result</a></li>
+<li><a href="https://www.rrbcdg.gov.in/" target="_blank" rel="noopener noreferrer">Railway Result</a></li>
+<li><a href="https://ctet.nic.in/" target="_blank" rel="noopener noreferrer">CTET Result</a></li>
+<li><a href="https://uppbpb.gov.in/" target="_blank" rel="noopener noreferrer">Police Recruitment Result</a></li>
+<li><a href="https://www.cbse.gov.in/" target="_blank" rel="noopener noreferrer">Board Examination Result</a></li>
+<li><a href="https://www.india.gov.in/" target="_blank" rel="noopener noreferrer">Government Exam Result</a></li>
+</ul>
+</section>
+
+<section class="card" id="admit-card">
+<h2>🎫 ADMIT CARD</h2><ul>
+<li><a href="https://ssc.gov.in/" target="_blank" rel="noopener noreferrer">SSC Admit Card</a></li>
+<li><a href="https://upsc.gov.in/" target="_blank" rel="noopener noreferrer">UPSC Admit Card</a></li>
+<li><a href="https://www.rrbcdg.gov.in/" target="_blank" rel="noopener noreferrer">Railway Admit Card</a></li>
+<li><a href="https://exams.nta.ac.in/" target="_blank" rel="noopener noreferrer">NTA Admit Card</a></li>
+<li><a href="https://uppbpb.gov.in/" target="_blank" rel="noopener noreferrer">Police Admit Card</a></li>
+<li><a href="https://joinindianarmy.nic.in/" target="_blank" rel="noopener noreferrer">Army Admit Card / Recruitment</a></li>
+<li><a href="https://www.india.gov.in/" target="_blank" rel="noopener noreferrer">Government Exam Admit Card</a></li>
+</ul>
+</section>
+
+<section class="card" id="latest-jobs">
+<h2>💼 LATEST JOBS</h2><ul>
+<li><a href="https://ssc.gov.in/" target="_blank" rel="noopener noreferrer">SSC Recruitment</a></li>
+<li><a href="https://upsc.gov.in/" target="_blank" rel="noopener noreferrer">UPSC Recruitment</a></li>
+<li><a href="https://www.rrbcdg.gov.in/" target="_blank" rel="noopener noreferrer">Railway Recruitment</a></li>
+<li><a href="https://www.indiapost.gov.in/" target="_blank" rel="noopener noreferrer">India Post Recruitment</a></li>
+<li><a href="https://uppbpb.gov.in/" target="_blank" rel="noopener noreferrer">Police Recruitment</a></li>
+<li><a href="https://joinindianarmy.nic.in/" target="_blank" rel="noopener noreferrer">Army Recruitment</a></li>
+<li><a href="https://www.joinindiannavy.gov.in/" target="_blank" rel="noopener noreferrer">Navy Recruitment</a></li>
+<li><a href="https://agnipathvayu.cdac.in/" target="_blank" rel="noopener noreferrer">Airforce Agniveer</a></li>
+<li><a href="https://www.ibps.in/" target="_blank" rel="noopener noreferrer">Bank Recruitment</a></li>
+<li><a href="https://www.education.gov.in/" target="_blank" rel="noopener noreferrer">Teaching / Education Recruitment</a></li>
+</ul>
+</section>
+
+</div>
+
+<div class="grid2">
+
+<section class="card" id="answer-key">
+<h2>📝 ANSWER KEY</h2><ul>
+<li><a href="https://ssc.gov.in/" target="_blank" rel="noopener noreferrer">SSC Answer Key</a></li>
+<li><a href="https://upsc.gov.in/" target="_blank" rel="noopener noreferrer">UPSC Answer Key / Notices</a></li>
+<li><a href="https://exams.nta.ac.in/" target="_blank" rel="noopener noreferrer">NTA Answer Key</a></li>
+<li><a href="https://www.rrbcdg.gov.in/" target="_blank" rel="noopener noreferrer">Railway Answer Key</a></li>
+<li><a href="https://ctet.nic.in/" target="_blank" rel="noopener noreferrer">CTET Answer Key</a></li>
+</ul>
+</section>
+
+<section class="card" id="syllabus">
+<h2>📚 SYLLABUS</h2><ul>
+<li><a href="https://ssc.gov.in/" target="_blank" rel="noopener noreferrer">SSC Syllabus</a></li>
+<li><a href="https://upsc.gov.in/" target="_blank" rel="noopener noreferrer">UPSC Syllabus</a></li>
+<li><a href="https://www.rrbcdg.gov.in/" target="_blank" rel="noopener noreferrer">Railway Syllabus</a></li>
+<li><a href="https://uppbpb.gov.in/" target="_blank" rel="noopener noreferrer">Police Syllabus / Notices</a></li>
+<li><a href="https://www.ibps.in/" target="_blank" rel="noopener noreferrer">Bank Exam Syllabus / Notices</a></li>
+</ul>
+</section>
+
+<section class="card" id="admission">
+<h2>🎓 ADMISSION</h2><ul>
+<li><a href="https://www.education.gov.in/" target="_blank" rel="noopener noreferrer">University Admission</a></li>
+<li><a href="https://exams.nta.ac.in/" target="_blank" rel="noopener noreferrer">NTA Admission / Exams</a></li>
+<li><a href="https://scholarships.gov.in/" target="_blank" rel="noopener noreferrer">Scholarship</a></li>
+<li><a href="https://exams.nta.ac.in/" target="_blank" rel="noopener noreferrer">Entrance Examination</a></li>
+<li><a href="https://www.education.gov.in/" target="_blank" rel="noopener noreferrer">College / Education Information</a></li>
+</ul>
+</section>
+
+<section class="card">
+<h2>🔗 IMPORTANT LINKS</h2><ul>
+<li><a href="https://www.india.gov.in/" target="_blank" rel="noopener noreferrer">India.gov.in</a></li>
+<li><a href="https://www.mygov.in/" target="_blank" rel="noopener noreferrer">MyGov</a></li>
+<li><a href="https://www.employmentnews.gov.in/" target="_blank" rel="noopener noreferrer">Employment News</a></li>
+<li><a href="https://www.india.gov.in/" target="_blank" rel="noopener noreferrer">Government Portals</a></li>
+<li><a href="https://www.nic.gov.in/" target="_blank" rel="noopener noreferrer">Official Government Websites</a></li>
+</ul>
+</section>
+
+<section class="card">
+<h2>✅ CERTIFICATE / SERVICES</h2><ul>
+<li><a href="https://uidai.gov.in/" target="_blank" rel="noopener noreferrer">Aadhaar Services — UIDAI</a></li>
+<li><a href="https://www.incometax.gov.in/" target="_blank" rel="noopener noreferrer">PAN / Income Tax Services</a></li>
+<li><a href="https://www.digilocker.gov.in/" target="_blank" rel="noopener noreferrer">DigiLocker</a></li>
+<li><a href="https://www.india.gov.in/" target="_blank" rel="noopener noreferrer">Certificate Verification</a></li>
+<li><a href="https://www.india.gov.in/" target="_blank" rel="noopener noreferrer">Government Services</a></li>
+</ul>
+</section>
+
+<section class="card">
+<h2>🏛️ GOVERNMENT PORTALS</h2><ul>
+<li><a href="https://www.india.gov.in/" target="_blank" rel="noopener noreferrer">Central Government</a></li>
+<li><a href="https://www.india.gov.in/" target="_blank" rel="noopener noreferrer">State Government</a></li>
+<li><a href="https://www.rrbcdg.gov.in/" target="_blank" rel="noopener noreferrer">Recruitment Boards</a></li>
+<li><a href="https://www.education.gov.in/" target="_blank" rel="noopener noreferrer">Education Portals</a></li>
+</ul>
+</section>
+
+</div>
+
+<section class="info">
+<h2>Government Job Information</h2>
+<div class="table-wrap">
+<table>
+<thead><tr><th>Post</th><th>Organization</th><th>Status</th><th>Official Website</th></tr></thead>
+<tbody>
+<tr><td>SSC Recruitment</td><td>SSC</td><td>Check Notification</td><td><a class="official" href="https://ssc.gov.in/" target="_blank" rel="noopener noreferrer">Official Website</a></td></tr>
+<tr><td>UPSC Recruitment</td><td>UPSC</td><td>Check Notification</td><td><a class="official" href="https://upsc.gov.in/" target="_blank" rel="noopener noreferrer">Official Website</a></td></tr>
+<tr><td>Railway Recruitment</td><td>RRB</td><td>Check Notification</td><td><a class="official" href="https://www.rrbcdg.gov.in/" target="_blank" rel="noopener noreferrer">Official Website</a></td></tr>
+<tr><td>India Post Jobs</td><td>India Post</td><td>Check Notification</td><td><a class="official" href="https://www.indiapost.gov.in/" target="_blank" rel="noopener noreferrer">Official Website</a></td></tr>
+</tbody>
+</table>
+</div>
+<p class="note">Demo/current-status placeholders are not live vacancy data. Replace them with verified notification dates, vacancy counts and application links before publishing.</p>
+</section>
+
+<section class="info">
+<h2>About Gov All India Jobs</h2>
+<p>Gov All India Jobs is an informational portal providing government job alerts, recruitment information, examination results, admit cards, answer keys, syllabus information and links to official government websites.</p>
+<br>
+<p><strong>Disclaimer:</strong> Gov All India Jobs is not a government organization and is not affiliated with any government department. Users should always verify eligibility, vacancy, fees, dates and application instructions from the concerned official notification.</p>
+</section>
+
+</main>
+
+<footer id="contact">
+<p><strong>Gov All India Jobs</strong> — Latest Government Job & Result Information Portal</p>
+<p>We provide informational links only. Always verify information on the concerned official government website.</p>
+<p>Email: <a href="mailto:govall9793@gmail.com">govall9793@gmail.com</a> | Mobile: <a href="tel:9793275447">9793275447</a></p>
+<p>© 2026 Gov All India Jobs. All Rights Reserved.</p>
+</footer>
+
+<button id="top" onclick="scrollToTop()" aria-label="Back to top">↑</button>
+
+<div class="modal" id="jobModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+<div class="modal-box">
+<div class="modal-head"><span id="modalTitle">Job Details</span><span class="close" onclick="closeModal()">×</span></div>
+<div class="modal-body">
+<p><strong>Job Name:</strong> <span id="mJob"></span></p>
+<p><strong>Organization:</strong> Government Recruitment Department</p>
+<p><strong>Eligibility:</strong> Check the current official notification.</p>
+<p><strong>Important Dates:</strong> Check the current official notification.</p>
+<p><strong>Official Website:</strong> Use the official department link shown on this page.</p>
+<a class="modal-btn" id="modalLink" href="#" target="_blank" rel="noopener noreferrer">Official Website</a>
+</div>
+</div>
+</div>
+
+<script>
+function toggleMenu(){
+ const menu=document.getElementById("navMenu");
+ menu.classList.toggle("open");
+}
+function searchJobs(){
+ const q=document.getElementById("searchInput").value.toLowerCase().trim();
+ document.querySelectorAll(".card li").forEach(li=>{
+   li.style.display=(!q || li.textContent.toLowerCase().includes(q))?"":"none";
+ });
+}
+function scrollToTop(){
+ window.scrollTo({top:0,behavior:"smooth"});
+}
+window.addEventListener("scroll",()=>{
+ document.getElementById("top").style.display=window.scrollY>350?"block":"none";
+});
+document.querySelectorAll('nav a[href^="#"]').forEach(a=>{
+ a.addEventListener("click",e=>{
+   const target=document.querySelector(a.getAttribute("href"));
+   if(target){e.preventDefault();target.scrollIntoView({behavior:"smooth",block:"start"});}
+   document.getElementById("navMenu").classList.remove("open");
+ });
+});
+document.querySelectorAll(".card li a").forEach(link=>{
+ link.addEventListener("click",function(){
+   if(this.getAttribute("href")==="#" ) e.preventDefault();
+ });
+});
+function closeModal(){document.getElementById("jobModal").style.display="none"}
+window.addEventListener("keydown",e=>{if(e.key==="Escape")closeModal()});
+window.addEventListener("click",e=>{
+ const modal=document.getElementById("jobModal");
+ if(e.target===modal)closeModal();
+});
+</script>
+</body>
+</html>
