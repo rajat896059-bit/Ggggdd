@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RGCSM COMPUTER CENTRE - Powayan</title>
+    <style>
+        :root {
+            --primary: #1e40af;
+            --primary-hover: #1d4ed8;
+            --accent: #d97706;
+            --bg-light: #f8fafc;
+            --card-bg: #ffffff;
+            --text-dark: #1e293b;
+            --text-muted: #64748b;
+            --border: #e2e8f0;
+            --success: #16a34a;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* Top Announcement Bar */
+        .top-banner {
+            background: #dc2626;
+            color: white;
+            text-align: center;
+            padding: 0.5rem 1rem;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1e3a8a, var(--primary));
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            font-size: 2.2rem;
+            margin-bottom: 0.3rem;
+        }
+
+        header p {
+            color: #93c5fd;
+            font-size: 1rem;
+        }
+
+        nav {
+            background-color: #0f172a;
+            padding: 0.8rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        nav a {
+            color: #f1f5f9;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: var(--accent);
+        }
+
+        .auth-btns {
+            display: flex;
+            gap: 0.8rem;
+        }
+
+        .btn-sm {
+            padding: 0.4rem 0.9rem;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            font-size: 0.85rem;
+        }
+
+        .btn-login {
+            background: transparent;
+            color: white;
+            border: 1px solid white;
+        }
+
+        .btn-signup {
+            background: var(--accent);
+            color: white;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        /* Discount Banner Card */
+        .discount-card {
+            background: linear-gradient(135deg, #fef3c7, #fde68a);
+            border: 2px dashed var(--accent);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .discount-card h3 {
+            color: #92400e;
+            font-size: 1.3rem;
+        }
+
+        .discount-card p {
+            color: #78350f;
+        }
+
+        .search-container {
+            margin-bottom: 2rem;
+            display: flex;
+            justify-content: center;
+        }
+
+        .search-container input {
+            width: 100%;
+            max-width: 600px;
+            padding: 0.75rem 1rem;
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            font-size: 1rem;
+            outline: none;
+        }
+
+        .search-container input:focus {
+            border-color: var(--primary);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            transition: transform 0.2s;
+            position: relative;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+        }
+
+        .card .badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: #dcfce7;
+            color: #15803d;
+            font-size: 0.75rem;
+            font-weight:bold;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+        }
+
+        .card h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+            padding-right: 2rem;
+        }
+
+        .card .details {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 0.8rem;
+        }
+
+        .card .price-box {
+            display: flex;
+            align-items: baseline;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .card .price {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: var(--accent);
+        }
+
+        .card .old-price {
+            text-decoration: line-through;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .btn {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.75rem 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            width: 100%;
+            transition: background 0.2s;
+        }
+
+        .btn:hover {
+            background-color: var(--primary-hover);
+        }
+
+        /* Modal Styling */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 480px;
+            position: relative;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .modal h2 {
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.3rem;
+            font-size: 0.9rem;
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 0.6rem;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        footer {
+            background: #0f172a;
+            color: white;
+            padding: 2.5rem 1rem;
+            margin-top: 3rem;
+        }
+
+        .footer-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-section h4 {
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .footer-section p {
+            color: #94a3b8;
+            font-size: 0.95rem;
+            margin-bottom: 0.4rem;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid #1e293b;
+            color: #64748b;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-banner">
+        🎉 Early Bird Offer: Use Code <strong>RGCSM10</strong> to get 10% Extra Discount on All Admissions!
+    </div>
+
+    <header>
+        <h1>RGCSM COMPUTER CENTRE</h1>
+        <p>Govt. Recognized IT Education & Skill Training Institute</p>
+    </header>
+
+    <nav>
+        <div class="nav-links">
+            <a href="#courses">Courses</a>
+            <a href="#offers">Special Offers</a>
+            <a href="#contact">Contact Us</a>
+        </div>
+        <div class="auth-btns">
+            <button class="btn-sm btn-login" onclick="openAuthModal('login')">Login</button>
+            <button class="btn-sm btn-signup" onclick="openAuthModal('signup')">Sign Up</button>
+        </div>
+    </nav>
+
+    <div class="container">
+        
+        <div class="discount-card" id="offers">
+            <div>
+                <h3>🎓 New Student Special Offer 2026</h3>
+                <p>Register online today and get a complimentary study kit + 10% off using coupon code <strong>RGCSM10</strong>.</p>
+            </div>
+            <button class="btn" style="width: auto;" onclick="scrollToCourses()">Explore Courses</button>
+        </div>
+
+        <h2 class="section-title" id="courses">All India Accredited Computer Courses</h2>
+        
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Search courses (e.g. O Level, ADCA, Tally, Java, Python)..." onkeyup="filterCourses()">
+        </div>
+
+        <div class="grid" id="courseGrid"></div>
+    </div>
+
+    <div class="modal-overlay" id="registrationModal">
+        <div class="modal">
+            <button class="close-modal" onclick="closeModal('registrationModal')">&times;</button>
+            <h2>Course Application</h2>
+            <form id="regForm" onsubmit="submitForm(event)">
+                <div class="form-group">
+                    <label>Selected Course</label>
+                    <input type="text" id="modalCourseName" readonly>
+                </div>
+                <div class="form-group">
+                    <label>Course Fee</label>
+                    <input type="text" id="modalCourseFee" readonly>
+                </div>
+                <div class="form-group">
+                    <label>Student Full Name</label>
+                    <input type="text" id="studentName" required placeholder="Enter student name">
+                </div>
+                <div class="form-group">
+                    <label>Phone Number</label>
+                    <input type="tel" id="studentPhone" required pattern="[0-9]{10}" placeholder="10-digit mobile number">
+                </div>
+                <div class="form-group">
+                    <label>Email Address</label>
+                    <input type="email" id="studentEmail" required placeholder="example@gmail.com">
+                </div>
+                <div class="form-group">
+                    <label>Discount Coupon Code</label>
+                    <input type="text" id="couponCode" placeholder="Enter coupon code (e.g. RGCSM10)">
+                </div>
+                <button type="submit" class="btn">Submit Application</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="authModal">
+        <div class="modal">
+            <button class="close-modal" onclick="closeModal('authModal')">&times;</button>
+            <h2 id="authTitle">Student Portal Login</h2>
+            <form onsubmit="handleAuth(event)">
+                <div class="form-group">
+                    <label>Email Address / Username</label>
+                    <input type="email" required placeholder="student@gmail.com">
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" required placeholder="••••••••">
+                </div>
+                <button type="submit" class="btn" id="authSubmitBtn">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <footer id="contact">
+        <div class="footer-grid">
+            <div class="footer-section">
+                <h4>RGCSM Computer Centre</h4>
+                <p>Empowering rural and urban students with industry-ready computer skill programs and government certifications.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Contact Details</h4>
+                <p><strong>Address:</strong> Powayan (242401), Shahjahanpur, UP</p>
+                <p><strong>Phone:</strong> +91 9793275447, +91 8960591469</p>
+                <p><strong>Email:</strong> rajat896059@gmail.com</p>
+            </div>
+            <div class="footer-section">
+                <h4>Institute Subject</h4>
+                <p>Government Approved Computer Courses & Practical Training</p>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2026 RGCSM Computer Centre, Powayan. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // List of popular Indian Computer Courses with standard India rates
+        const courses = [
+            { name: "NIELIT O Level", duration: "1 Year", fee: 22000, oldFee: 25000, desc: "Govt. Foundation Diploma in IT, Web Design, IoT & Python (NSQF Level 4)." },
+            { name: "CCC (Course on Computer Concepts)", duration: "3 Months", fee: 4000, oldFee: 4500, desc: "NIELIT Govt. certified basic computer course for all competitive exams." },
+            { name: "ADCA (Advanced Diploma in Computer Applications)", duration: "1 Year", fee: 15000, oldFee: 18000, desc: "Covers MS Office, Tally Prime, Photoshop, DTP & Web Basics." },
+            { name: "DCA (Diploma in Computer Applications)", duration: "6 Months", fee: 8500, oldFee: 10000, desc: "Fundamental operations, MS Office suite, and internet/email applications." },
+            { name: "Tally Prime with GST", duration: "3 Months", fee: 6500, oldFee: 8000, desc: "Professional computerized accounting, inventory management, and tax filing." },
+            { name: "NIELIT A Level", duration: "1.5 Years", fee: 35000, oldFee: 40000, desc: "Advanced Level Diploma in Software Development & Data Engineering." },
+            { name: "Full Stack Web Development", duration: "6 Months", fee: 18000, oldFee: 22000, desc: "HTML5, CSS3, JavaScript, React, Node.js, and Database management." },
+            { name: "Python Programming & Data Science", duration: "3 Months", fee: 8000, oldFee: 10000, desc: "Core Python syntax, Object Oriented Programming, and Data Analysis basics." },
+            { name: "Java Full Stack Programming", duration: "4 Months", fee: 12000, oldFee: 15000, desc: "Core Java, Advanced Java, Spring Boot framework, and SQL database." },
+            { name: "Graphic Design & Video Editing", duration: "4 Months", fee: 10000, oldFee: 12500, desc: "Master Photoshop, CorelDRAW, Illustrator, and Premiere Pro." },
+            { name: "Hardware & Networking (DCHN)", duration: "6 Months", fee: 11000, oldFee: 14000, desc: "PC assembly, troubleshooting, router configuration, and network security." },
+            { name: "Cyber Security & Ethical Hacking", duration: "6 Months", fee: 16000, oldFee: 20000, desc: "Network security, penetration testing fundamentals, and ethical hacking." }
+        ];
+
+        // Render course cards
+        function renderCourses(courseList) {
+            const grid = document.getElementById('courseGrid');
+            grid.innerHTML = '';
+            
+            courseList.forEach(c => {
+                const card = document.createElement('div');
+                card.className = 'card';
+                card.innerHTML = `
+                    <span class="badge">Admissions Open</span>
+                    <div>
+                        <h3>${c.name}</h3>
+                        <p class="details"><strong>Duration:</strong> ${c.duration}</p>
+                        <p class="details">${c.desc}</p>
+                    </div>
+                    <div>
+                        <div class="price-box">
+                            <span class="price">₹${c.fee.toLocaleString('en-IN')}</span>
+                            <span class="old-price">₹${c.oldFee.toLocaleString('en-IN')}</span>
+                        </div>
+                        <button class="btn" onclick="openModal('registrationModal', '${c.name}', ${c.fee})">Apply & Register</button>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        // Live filter courses by name or description
+        function filterCourses() {
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            const filtered = courses.filter(c => 
+                c.name.toLowerCase().includes(query) || 
+                c.desc.toLowerCase().includes(query)
+            );
+            renderCourses(filtered);
+        }
+
+        // Open registration or login modal
+        function openModal(modalId, courseName = '', courseFee = '') {
+            if (courseName) {
+                document.getElementById('modalCourseName').value = courseName;
+                document.getElementById('modalCourseFee').value = '₹' + courseFee.toLocaleString('en-IN');
+            }
+            document.getElementById(modalId).style.display = 'flex';
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+        }
+
+        // Open login vs signup modal configuration
+        function openAuthModal(type) {
+            const title = document.getElementById('authTitle');
+            const btn = document.getElementById('authSubmitBtn');
+            if (type === 'login') {
+                title.innerText = 'Student Portal Login';
+                btn.innerText = 'Login';
+            } else {
+                title.innerText = 'Student Registration Account';
+                btn.innerText = 'Create Account';
+            }
+            openModal('authModal');
+        }
+
+        // Registration form submission handler
+        function submitForm(event) {
+            event.preventDefault();
+            const name = document.getElementById('studentName').value;
+            const course = document.getElementById('modalCourseName').value;
+            const coupon = document.getElementById('couponCode').value;
+
+            let msg = `Application Received!\n\nDear ${name}, your registration for ${course} at RGCSM Computer Centre (Powayan) has been successfully submitted.`;
+            if (coupon.toUpperCase() === 'RGCSM10') {
+                msg += `\n\n🎉 Coupon code RGCSM10 applied! You qualify for a 10% discount on final fee payment.`;
+            }
+
+            alert(msg);
+            document.getElementById('regForm').reset();
+            closeModal('registrationModal');
+        }
+
+        // Login / Signup submission mock handler
+        function handleAuth(event) {
+            event.preventDefault();
+            alert('Operation successful! Redirecting to RGCSM Student Dashboard...');
+            closeModal('authModal');
+        }
+
+        function scrollToCourses() {
+            document.getElementById('courses').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Close modal when clicking outside form
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal-overlay')) {
+                event.target.style.display = 'none';
+            }
+        }
+
+        // Initial render
+        renderCourses(courses);
+    </script>
+</body>
+</html>
